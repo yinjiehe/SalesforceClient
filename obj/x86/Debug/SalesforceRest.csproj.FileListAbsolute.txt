@@ -1,0 +1,41 @@
+D:\temp\SalesforceRest\SalesforceRest\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\temp\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.Login.resources
+D:\temp\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.RestClient.resources
+D:\temp\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.Properties.Resources.resources
+D:\temp\SalesforceRest\SalesforceRest\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\temp\SalesforceRest\SalesforceRest\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\temp\SalesforceRest\SalesforceRest\bin\Debug\SalesforceRest.exe
+D:\temp\SalesforceRest\SalesforceRest\bin\Debug\SalesforceRest.pdb
+D:\temp\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.exe
+D:\temp\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.pdb
+D:\Workspace\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.exe
+D:\Workspace\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.pdb
+D:\Workspace\SalesforceRest\SalesforceRest\bin\Debug\SalesforceRest.exe
+D:\Workspace\SalesforceRest\SalesforceRest\bin\Debug\SalesforceRest.pdb
+D:\Workspace\SalesforceRest\SalesforceRest\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Workspace\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.Login.resources
+D:\Workspace\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.RestClient.resources
+D:\Workspace\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.Properties.Resources.resources
+D:\Workspace\SalesforceRest\SalesforceRest\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Workspace\SalesforceRest\SalesforceRest\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\练习代码\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.exe
+D:\练习代码\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.pdb
+D:\练习代码\SalesforceRest\SalesforceRest\bin\Debug\SalesforceRest.exe
+D:\练习代码\SalesforceRest\SalesforceRest\bin\Debug\SalesforceRest.pdb
+D:\练习代码\SalesforceRest\SalesforceRest\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\练习代码\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.Login.resources
+D:\练习代码\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.RestClient.resources
+D:\练习代码\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.Properties.Resources.resources
+D:\练习代码\SalesforceRest\SalesforceRest\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\练习代码\SalesforceRest\SalesforceRest\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\练习代码\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.BulkAPITest.resources
+D:\Test Codes\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.exe
+D:\Test Codes\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.pdb
+D:\Test Codes\SalesforceRest\SalesforceRest\bin\Debug\SalesforceRest.exe
+D:\Test Codes\SalesforceRest\SalesforceRest\bin\Debug\SalesforceRest.pdb
+D:\Test Codes\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.Login.resources
+D:\Test Codes\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.Properties.Resources.resources
+D:\Test Codes\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.csproj.GenerateResource.Cache
+D:\Test Codes\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.csprojResolveAssemblyReference.cache
+D:\Test Codes\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.BulkAPIClient.resources
+D:\Test Codes\SalesforceRest\SalesforceRest\obj\x86\Debug\SalesforceRest.RestAPIClient.resources
