@@ -78,7 +78,8 @@
             // 
             // TB_URI
             // 
-            this.TB_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_URI.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_URI.Location = new System.Drawing.Point(313, 56);
             this.TB_URI.Name = "TB_URI";
             this.TB_URI.Size = new System.Drawing.Size(492, 21);
@@ -140,7 +141,8 @@
             // 
             // TB_SessionID
             // 
-            this.TB_SessionID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TB_SessionID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_SessionID.Location = new System.Drawing.Point(313, 22);
             this.TB_SessionID.Name = "TB_SessionID";
             this.TB_SessionID.Size = new System.Drawing.Size(492, 21);
@@ -185,6 +187,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CB_Method);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(840, 480);
             this.Name = "RestAPIClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rest API Client";

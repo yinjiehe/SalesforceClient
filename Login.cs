@@ -93,23 +93,14 @@ namespace SalesforceRest
 
         private void SoapLogin(string userName, string password)
         {
-            string content = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" +
-                "<soap:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" " +
-                "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" " +
-                "xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
-                "<soap:Body>" +
-                "<n1:login xmlns:n1=\"urn:partner.soap.sforce.com\">" +
-                "<n1:username>" + userName + "</n1:username>" +
-                "<n1:password>" + password + "</n1:password>" +
-                "</n1:login>" +
-                "</soap:Body>" +
-                "</soap:Envelope>";
+            // Send request
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(this.TB_URL.Text);
             request.Method = "POST";
             request.Headers.Add("SOAPAction", "login");
             request.ContentType = "text/xml;charset=\"UTF-8\"";
             request.Accept = "text/xml";
-            RequestHelper.SetBody(request, content);
+            string loginBody = GetLoginBody(userName, password);
+            RequestHelper.SetBody(request, loginBody);
             string result = RequestHelper.GetResponse(request);
 
             // Get information from response
@@ -127,6 +118,23 @@ namespace SalesforceRest
 
             Uri uri = new Uri(_serverURL);
             _host = uri.Host;
+        }
+
+        private string GetLoginBody(string userName, string password)
+        {
+            string body = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" +
+                "<soap:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" " +
+                "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" " +
+                "xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
+                "<soap:Body>" +
+                "<n1:login xmlns:n1=\"urn:partner.soap.sforce.com\">" +
+                "<n1:username>" + userName + "</n1:username>" +
+                "<n1:password>" + password + "</n1:password>" +
+                "</n1:login>" +
+                "</soap:Body>" +
+                "</soap:Envelope>";
+
+            return body;
         }
 
     }

@@ -112,6 +112,8 @@
             // 
             // TB_URI
             // 
+            this.TB_URI.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_URI.Location = new System.Drawing.Point(603, 56);
             this.TB_URI.Name = "TB_URI";
             this.TB_URI.Size = new System.Drawing.Size(209, 21);
@@ -119,6 +121,8 @@
             // 
             // CB_Method
             // 
+            this.CB_Method.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CB_Method.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Method.FormattingEnabled = true;
             this.CB_Method.Items.AddRange(new object[] {
@@ -234,6 +238,7 @@
             this.Controls.Add(this.TB_URI);
             this.Controls.Add(this.CB_Method);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(840, 480);
             this.Name = "BulkAPIClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bulk API Client";
