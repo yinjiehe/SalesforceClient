@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using SalesforceClient;
 
 namespace SalesforceRest
 {
@@ -35,6 +36,11 @@ namespace SalesforceRest
             this.TB_URI.Text = "/services/data";
         }
 
+        private void BulkAPIClient_Shown(object sender, EventArgs e)
+        {
+            this.BTN_GO.Focus();
+        }
+
         private void BTN_GO_Click(object sender, EventArgs e)
         {
             try
@@ -44,30 +50,17 @@ namespace SalesforceRest
                 request.Method = this.CB_Method.Text;
                 request.Headers.Add("X-SFDC-Session", this.TB_SessionID.Text);
                 request.Accept = this.CB_Accept.Text;
-                if (!string.IsNullOrEmpty(this.TB_RequestBody.Text))
+                if (!string.IsNullOrEmpty(this.RTB_RequestBody.Text))
                 {
                     request.ContentType = this.CB_ContentType.Text;
-                    SetBody(request, this.TB_RequestBody.Text);
+                    RequestHelper.SetBody(request, this.RTB_RequestBody.Text);
                 }
 
-                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-                this.RTB_Response.Text = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                this.RTB_Response.Text = RequestHelper.GetResponse(request);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-        }
-
-        void SetBody(HttpWebRequest request, string requestBody)
-        {
-            if (requestBody.Length > 0)
-            {
-                using (Stream requestStream = request.GetRequestStream())
-                using (StreamWriter writer = new StreamWriter(requestStream))
-                {
-                    writer.Write(requestBody);
-                }
             }
         }
 

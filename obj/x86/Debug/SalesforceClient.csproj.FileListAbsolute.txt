@@ -18,3 +18,4 @@ D:\Test Codes\SalesforceClient\SalesforceClient\obj\x86\Debug\SalesforceClient.P
 D:\Test Codes\SalesforceClient\SalesforceClient\obj\x86\Debug\SalesforceClient.csproj.GenerateResource.Cache
 D:\Test Codes\SalesforceClient\SalesforceClient\obj\x86\Debug\SalesforceClient.exe
 D:\Test Codes\SalesforceClient\SalesforceClient\obj\x86\Debug\SalesforceClient.pdb
+D:\Test Codes\SalesforceClient\SalesforceClient\obj\x86\Debug\SalesforceClient.csprojResolveAssemblyReference.cache

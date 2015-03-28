@@ -53,9 +53,11 @@
             // 
             // TB_UserName
             // 
+            this.TB_UserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_UserName.Location = new System.Drawing.Point(92, 22);
             this.TB_UserName.Name = "TB_UserName";
-            this.TB_UserName.Size = new System.Drawing.Size(343, 21);
+            this.TB_UserName.Size = new System.Drawing.Size(363, 21);
             this.TB_UserName.TabIndex = 1;
             // 
             // label2
@@ -69,9 +71,12 @@
             // 
             // TB_Password
             // 
+            this.TB_Password.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_Password.Location = new System.Drawing.Point(92, 52);
             this.TB_Password.Name = "TB_Password";
-            this.TB_Password.Size = new System.Drawing.Size(343, 21);
+            this.TB_Password.PasswordChar = '*';
+            this.TB_Password.Size = new System.Drawing.Size(363, 21);
             this.TB_Password.TabIndex = 3;
             // 
             // TableLayoutPanel_Buttons
@@ -82,12 +87,12 @@
             this.TableLayoutPanel_Buttons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TableLayoutPanel_Buttons.Controls.Add(this.OK_Button, 0, 0);
             this.TableLayoutPanel_Buttons.Controls.Add(this.Cancel_Button, 1, 0);
-            this.TableLayoutPanel_Buttons.Location = new System.Drawing.Point(289, 163);
+            this.TableLayoutPanel_Buttons.Location = new System.Drawing.Point(309, 145);
             this.TableLayoutPanel_Buttons.Name = "TableLayoutPanel_Buttons";
             this.TableLayoutPanel_Buttons.RowCount = 1;
             this.TableLayoutPanel_Buttons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TableLayoutPanel_Buttons.Size = new System.Drawing.Size(146, 27);
-            this.TableLayoutPanel_Buttons.TabIndex = 5;
+            this.TableLayoutPanel_Buttons.TabIndex = 8;
             // 
             // OK_Button
             // 
@@ -117,15 +122,17 @@
             this.label3.Location = new System.Drawing.Point(60, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 4;
             this.label3.Text = "URL:";
             // 
             // TB_URL
             // 
+            this.TB_URL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_URL.Location = new System.Drawing.Point(92, 81);
             this.TB_URL.Name = "TB_URL";
-            this.TB_URL.Size = new System.Drawing.Size(343, 21);
-            this.TB_URL.TabIndex = 7;
+            this.TB_URL.Size = new System.Drawing.Size(363, 21);
+            this.TB_URL.TabIndex = 5;
             // 
             // BulkAPI
             // 
@@ -134,7 +141,7 @@
             this.BulkAPI.Location = new System.Drawing.Point(92, 110);
             this.BulkAPI.Name = "BulkAPI";
             this.BulkAPI.Size = new System.Drawing.Size(71, 16);
-            this.BulkAPI.TabIndex = 8;
+            this.BulkAPI.TabIndex = 6;
             this.BulkAPI.TabStop = true;
             this.BulkAPI.Text = "Bulk API";
             this.BulkAPI.UseVisualStyleBackColor = true;
@@ -145,7 +152,7 @@
             this.RestAIP.Location = new System.Drawing.Point(173, 110);
             this.RestAIP.Name = "RestAIP";
             this.RestAIP.Size = new System.Drawing.Size(71, 16);
-            this.RestAIP.TabIndex = 9;
+            this.RestAIP.TabIndex = 7;
             this.RestAIP.Text = "REST API";
             this.RestAIP.UseVisualStyleBackColor = true;
             // 
@@ -155,7 +162,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel_Button;
-            this.ClientSize = new System.Drawing.Size(461, 212);
+            this.ClientSize = new System.Drawing.Size(481, 192);
             this.Controls.Add(this.RestAIP);
             this.Controls.Add(this.BulkAPI);
             this.Controls.Add(this.TB_URL);
@@ -173,6 +180,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Salesforce";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.TableLayoutPanel_Buttons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

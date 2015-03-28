@@ -10,6 +10,8 @@ using System.IO;
 using System.Net;
 using System.Xml;
 using System.Xml.XPath;
+using SalesforceClient;
+using System.Threading;
 
 namespace SalesforceRest
 {
@@ -18,7 +20,6 @@ namespace SalesforceRest
         public Login()
         {
             InitializeComponent();
-            this.TB_URL.Text = "https://login.salesforce.com/services/Soap/u/33.0";
         }
 
         public bool BulkAPIChecked
@@ -31,6 +32,11 @@ namespace SalesforceRest
             get { return this.RestAIP.Checked; }
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.TB_URL.Text = "https://login.salesforce.com/services/Soap/u/33.0";
+        }
+
         private void OK_Button_Click(object sender, EventArgs e)
         {
             try
@@ -39,12 +45,14 @@ namespace SalesforceRest
                 {
                     MessageBox.Show("Please input user name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.TB_UserName.Focus();
+                    this.DialogResult = System.Windows.Forms.DialogResult.None;
                     return;
                 }
                 if (string.IsNullOrEmpty(this.TB_Password.Text))
                 {
                     MessageBox.Show("Please input password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.TB_Password.Focus();
+                    this.DialogResult = System.Windows.Forms.DialogResult.None;
                     return;
                 }
 
@@ -64,13 +72,10 @@ namespace SalesforceRest
             this.Close();
         }
 
-        private BulkAPIClient _bulkAPIDlg = null;
-        private RestAPIClient _restAPIDlg = null;
+        private string _sessionID = null;
+        private string _serverURL = null;
+        private string _host = null;
 
-        private string _sessionID;
-        private string _serverURL;
-        private string _host;
-        private string _response;
         public string SessionID
         {
             get { return _sessionID; }
@@ -86,64 +91,42 @@ namespace SalesforceRest
             get { return _host; }
         }
 
-        public string Response
-        {
-            get { return _response; }
-        }
-
         private void SoapLogin(string userName, string password)
         {
             string content = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>" +
-                             "<soap:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" " +
-                             "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" " +
-                             "xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
-                             "<soap:Body>" +
-                             "<n1:login xmlns:n1=\"urn:partner.soap.sforce.com\">" +
-                             "<n1:username>" + userName + "</n1:username>" +
-                             "<n1:password>" + password + "</n1:password>" +
-                             "</n1:login>" +
-                             "</soap:Body>" +
-                             "</soap:Envelope>";
+                "<soap:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" " +
+                "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" " +
+                "xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
+                "<soap:Body>" +
+                "<n1:login xmlns:n1=\"urn:partner.soap.sforce.com\">" +
+                "<n1:username>" + userName + "</n1:username>" +
+                "<n1:password>" + password + "</n1:password>" +
+                "</n1:login>" +
+                "</soap:Body>" +
+                "</soap:Envelope>";
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(this.TB_URL.Text);
             request.Method = "POST";
             request.Headers.Add("SOAPAction", "login");
             request.ContentType = "text/xml;charset=\"UTF-8\"";
             request.Accept = "text/xml";
-            SetBody(request, content);
+            RequestHelper.SetBody(request, content);
+            string result = RequestHelper.GetResponse(request);
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            string result = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            _response = result;
+            // Get information from response
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(result);
-            XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDoc.NameTable);
-            nsmgr.AddNamespace("soapenv", "http://schemas.xmlsoap.org/soap/envelope/");
-            nsmgr.AddNamespace("df", "urn:partner.soap.sforce.com");
-            XmlNode xmlNode = xmlDoc.DocumentElement.SelectSingleNode("/soapenv:Envelope/soapenv:Body/df:loginResponse/df:result/df:sessionId", nsmgr);
-            //nsmgr.RemoveNamespace("soapenv", "http://schemas.xmlsoap.org/soap/envelope/");
-            //xmlNode = xmlNode.SelectSingleNode("loginResponse");
+            XmlNamespaceManager xmlManager = new XmlNamespaceManager(xmlDoc.NameTable);
+            xmlManager.AddNamespace("soapenv", "http://schemas.xmlsoap.org/soap/envelope/");
+            xmlManager.AddNamespace("df", "urn:partner.soap.sforce.com");
+
+            XmlNode xmlNode = xmlDoc.DocumentElement.SelectSingleNode("/soapenv:Envelope/soapenv:Body/df:loginResponse/df:result/df:sessionId", xmlManager);
             _sessionID = xmlNode.FirstChild.Value;
 
-            xmlNode = xmlDoc.DocumentElement.SelectSingleNode("/soapenv:Envelope/soapenv:Body/df:loginResponse/df:result/df:serverUrl", nsmgr);
+            xmlNode = xmlDoc.DocumentElement.SelectSingleNode("/soapenv:Envelope/soapenv:Body/df:loginResponse/df:result/df:serverUrl", xmlManager);
             _serverURL = xmlNode.FirstChild.Value;
 
             Uri uri = new Uri(_serverURL);
             _host = uri.Host;
-            //XPathDocument doc = new XPathDocument(response.GetResponseStream());
-            //XPathNavigator nav = doc.CreateNavigator();
-            //XPathNodeIterator ite = nav.Select("/notepad/topic");
-        }
-
-        void SetBody(HttpWebRequest request, string requestBody)
-        {
-            if (requestBody.Length > 0)
-            {
-                using (Stream requestStream = request.GetRequestStream())
-                using (StreamWriter writer = new StreamWriter(requestStream))
-                {
-                    writer.Write(requestBody);
-                }
-            }
         }
 
     }
